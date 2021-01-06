@@ -1,10 +1,10 @@
 // Initial function
 const init = () => {
   // Add create button to body
-  const btn = document.createElement(`button`);
-  btn.textContent = "Dodaj 10 elementów do listy";
-  btn.id = "add";
-  document.body.appendChild(btn);
+  const btnCreate = document.createElement(`button`);
+  btnCreate.textContent = "Dodaj 10 elementów do listy";
+  btnCreate.id = "add";
+  document.body.appendChild(btnCreate);
 
   // Add reset button to body
   const btnReset = document.createElement(`button`);
