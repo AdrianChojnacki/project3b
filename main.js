@@ -15,6 +15,7 @@ const init = () => {
 
   // Add List to body
   const list = document.createElement(`ul`);
+  list.style.listStyle = "none";
   document.body.appendChild(list);
 };
 
@@ -29,12 +30,9 @@ let size = 10;
 const createElements = () => {
   for (let i = 0; i < 10; i++) {
     const li = document.createElement(`li`);
-    li.textContent = `Element nr ${orderElement}`;
-    li.style.fontSize = `${size}px`;
+    li.textContent = `Element nr ${orderElement++}`;
+    li.style.fontSize = `${size++}px`;
     document.querySelector(`ul`).appendChild(li);
-
-    orderElement++;
-    size++;
   }
 };
 
@@ -47,6 +45,9 @@ const resetElements = () => {
   elements.forEach((element) => {
     element.remove();
   });
+
+  // Easier way
+  // document.querySelector(`ul`).textContent = "";
 
   orderElement = 1;
   size = 10;
