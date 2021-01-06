@@ -1,9 +1,17 @@
 // Initial function
 const init = () => {
-  // Add button to body
+  // Add create button to body
   const btn = document.createElement(`button`);
   btn.textContent = "Dodaj 10 elementów do listy";
+  btn.id = "add";
   document.body.appendChild(btn);
+
+  // Add reset button to body
+  const btnReset = document.createElement(`button`);
+  btnReset.textContent = "Reset";
+  btnReset.style.marginLeft = "10px";
+  btnReset.id = "reset";
+  document.body.appendChild(btnReset);
 
   // Add List to body
   const list = document.createElement(`ul`);
@@ -13,11 +21,11 @@ const init = () => {
 // Run initial function
 init();
 
-// "Create elements" function variables
+// Functions variables
 let orderElement = 1;
 let size = 10;
 
-// "Create elements" function
+// "Create" function
 const createElements = () => {
   for (let i = 0; i < 10; i++) {
     const li = document.createElement(`li`);
@@ -30,5 +38,19 @@ const createElements = () => {
   }
 };
 
-// Listener
-document.querySelector(`button`).addEventListener(`click`, createElements);
+// "Create" listener
+document.querySelector(`#add`).addEventListener(`click`, createElements);
+
+// "Reset" function
+const resetElements = () => {
+  const elements = document.querySelectorAll(`li`);
+  elements.forEach((element) => {
+    element.remove();
+  });
+
+  orderElement = 1;
+  size = 10;
+};
+
+// "Reset" listener
+document.querySelector(`#reset`).addEventListener(`click`, resetElements);
